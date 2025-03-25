@@ -1,66 +1,327 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Kickboks School Management Systeem
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Overzicht
+Dit Laravel project biedt een Kickboks School Management Systeem met drie bestaande modellen: Training, Lidmaatschapsplan en het standaard Laravel User model. Studenten moeten deze basis uitbreiden met individuele functies om hun Laravel-vaardigheden te tonen in CRUD-operaties, relaties, validatie, routing en middleware.
 
-## About Laravel
+## Gebruikersverhalen
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. Lesrooster Planning
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Als instructeur:
+- Lesroosters maken en beheren
+  - Lessen maken met datum, tijd en moeilijkheidsgraad
+  - Instructeurs toewijzen aan specifieke lessen
+  - Maximale capaciteit instellen voor elke les
+  - Lessen markeren als terugkerend (wekelijks, maandelijks)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Als student:
+- Lesrooster bekijken
+  - Alle beschikbare lessen voor de week zien
+  - Lessen filteren op type, niveau of instructeur
+  - Lesdetails bekijken, inclusief duur en vereisten
+  - Beschikbaarheid controleren
 
-## Learning Laravel
+### 2. Studentenregistratie
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### Als schoolbeheerder:
+- Studentenregistraties beheren
+  - Nieuwe studenten registreren met contactgegevens
+  - Lidmaatschapsplannen en betalingsstatus toewijzen
+  - Studentinformatie en status bijwerken
+  - Aanwezigheid en betalingsgeschiedenis bekijken
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### Als potentiële student:
+- Inschrijven voor kickbokslessen
+  - Online registratieformulier invullen
+  - Lidmaatschapsplan selecteren
+  - Vereiste vrijwaringen en medische informatie indienen
+  - Registratiebevestiging ontvangen
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 3. Aanwezigheidsregistratie
 
-## Laravel Sponsors
+#### Als instructeur:
+- Aanwezigheid bijhouden
+  - Studenten markeren als aanwezig, te laat of afwezig
+  - Aanwezigheidsgeschiedenis bekijken voor een specifieke les
+  - Studenten identificeren met onregelmatige aanwezigheid
+  - Aanwezigheidsrapporten genereren voor de eigenaar
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### Als student:
+- Aanwezigheidsregistratie bekijken
+  - Zien welke lessen zijn bijgewoond
+  - Aanwezigheidspercentage bekijken
+  - Aanwezigheidsreeksen en mijlpalen zien
+  - Meldingen ontvangen over gemiste lessen
 
-### Premium Partners
+### 4. Voortgangsbewaking
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+#### Als instructeur:
+- Studentvoortgang registreren
+  - Beoordelingen maken voor verschillende vaardigheden en technieken
+  - Voortgangsnotities bijhouden voor individuele studenten
+  - Band/rang-vorderingen bijhouden
+  - Gebieden identificeren waar studenten verbetering nodig hebben
 
-## Contributing
+#### Als student:
+- Voortgang bekijken
+  - Huidig vaardigheidsniveau en rang zien
+  - Feedback van instructeur en beoordelingsresultaten bekijken
+  - Verbetering in specifieke technieken volgen
+  - Persoonlijke trainingsdoelen stellen
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 5. Lidmaatschapsbeheer
 
-## Code of Conduct
+#### Als schoolbeheerder:
+- Lidmaatschapsplannen beheren
+  - Verschillende lidmaatschapsniveaus maken (beginner, gevorderd, onbeperkt)
+  - Prijzen en duur instellen voor elk plan
+  - Kortingen of promotietarieven toepassen
+  - Actieve en verlopen lidmaatschappen bijhouden
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Als student:
+- Lidmaatschap beheren
+  - Huidige lidmaatschapsdetails en vervaldatum bekijken
+  - Lidmaatschap verlengen of upgraden
+  - Betalingsgeschiedenis en aankomende kosten bekijken
+  - Lidmaatschap indien nodig pauzeren
 
-## Security Vulnerabilities
+### 6. Betalingsverwerking
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Als schoolbeheerder:
+- Betalingen verwerken
+  - Studenten betalen voor lidmaatschappen en speciale lessen
+  - Recurring facturering instellen voor lidmaatschappen
+  - Betalingsstatus en geschiedenis bijhouden
+  - Refunds uitgeven wanneer nodig
 
-## License
+#### Als student:
+- Betalen
+  - Lidmaatschapbetalingen online doen
+  - Recurring betalingen instellen
+  - Betalingsmethode bijwerken
+  - Ontvangen betalingsbewijzen
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 7. Uitrustingsinventaris
+
+#### Als uitrustingsmanager:
+- Inventaris bijhouden
+  - Inventarisitems toevoegen en categoriseren (handschoenen, pads, etc.)
+  - Hoeveelheden bijwerken en voorwaarden
+  - Uitrustingsleningen aan studenten bijhouden
+  - Laag voorraadwaarschuwingen instellen voor essentiële items
+
+#### Als student:
+- Uitrustingsleningen aanvragen of kopen
+  - Beschikbare uitrusting voor lening of aankoop bekijken
+  - Verzoek om schooluitrusting te lenen
+  - Persoonlijke uitrusting kopen via de school
+  - Uitrusting terugbrengen en geschiedenis bijhouden
+
+### 8. Wedstrijdbeheer
+
+#### Als coach:
+- Wedstrijdteambeheer
+  - Wedstrijden maken en bijhouden
+  - Studenten registreren voor specifieke evenementen
+  - Weeg-ininformatie en wedstrijdvereisten vastleggen
+  - Wedstrijdresultaten en prestaties documenteren
+
+#### Als student:
+- Deelnemen aan wedstrijden
+  - Wedstrijden bekijken die aankomend zijn
+  - Interesse aangeven om deel te nemen
+  - Wedstrijdgeschiedenis en resultaten bekijken
+  - Voorbereidingsinstructies ontvangen voor evenementen
+
+### 9. Instructorschedule
+
+#### Als schooleigenaar:
+- Instructorschedule beheren
+  - Instructeurs toewijzen aan specifieke lessen
+  - Instructeurbeschikbaarheid en kwalificaties bekijken
+  - Substituties indien nodig beheren
+  - Instructeururen voor loonberekening bijhouden
+
+#### Als instructeur:
+- Les- en lesbeheer bekijken
+  - Zien welke lessen ik ben gepland om te leren
+  - Verzoek om vrije tijd of schemawijzigingen
+  - Beschikbaarheid voor substitutie-mogelijkheden markeren
+  - Privélesafspraken vastleggen
+
+### 10. Vaardigheidscurriculum
+
+#### Als hoofdinstructeur:
+- Vaardigheidscurriculum definiëren
+  - Curriculummodules maken voor verschillende bandniveaus
+  - Specificeer vereiste technieken voor elk niveau
+  - Curriculuminhoud indien nodig bijwerken
+  - Instructeursautorisatie toewijzen om specifieke niveaus te leren
+
+#### Als student:
+- Vaardigheidscurriculum bekijken
+  - Zien welke vaardigheden nodig zijn voor het huidige niveau
+  - Voortgang door het curriculum volgen
+  - Instructie-inhoud voor technieken bekijken
+  - Zien wat er nodig is voor de volgende bandpromotie
+
+### 11. Privélesboeking
+
+#### Als instructeur:
+- Privélesboeking beheren
+  - Beschikbaarheid voor privélessen instellen
+  - Privélesaanvragen goedkeuren of afwijzen
+  - Privélesschema vastleggen
+  - Privésessie-notities vastleggen
+
+#### Als student:
+- Privélessen boeken
+  - Instructeurbeschikbaarheid voor privélessen bekijken
+  - Verzoek privélessen te boeken op voorkeursmomenten
+  - Focusgebieden voor les specificeren
+  - Privélessen in de toekomstige en verleden bekijken
+
+### 12. Bandtesten
+
+#### Als instructeur:
+- Bandtesten beheren
+  - Bandtestevenementen plannen
+  - Specificeer testvereisten en inschrijvingsvereisten
+  - Testresultaten en feedback vastleggen
+  - Voortgang van studenten door rangen bijhouden
+
+#### Als student:
+- Deelnemen aan bandtesten
+  - Upcoming testdata bekijken
+  - Registreren voor tests wanneer geschikt
+  - Zien wat er nodig is voor de volgende rang
+  - Voortgang en resultaten van testgeschiedenis bekijken
+
+### 13. Fysieke Evaluatie
+
+#### Als fitnesscoach:
+- Fysieke evaluaties uitvoeren
+  - Baseline fysieke metingen vastleggen
+  - Key Performance Indicators (KPI's) bijhouden (kracht, flexibiliteit, conditie)
+  - Periodieke herbeoordelingen plannen
+  - Voortgangsrapporten voor studenten genereren
+
+#### Als student:
+- Fysieke evaluatieresultaten bekijken
+  - Huidige fysieke metrische zien
+  - Veranderingen in fysieke prestaties over tijd bekijken
+  - Persoonlijke aanbevelingen bekijken
+  - Fitnessdoelen stellen op basis van evaluatie
+
+### 14. Schaderegistratie
+
+#### Als instructeur:
+- Schadegevallen bijhouden
+  - Schadegevallen vastleggen en details
+  - Medische beperkingen vastleggen voor geraakte studenten
+  - Herstellingsvoortgang bijhouden
+  - Trainingplannen aanpassen om schade te verhelpen
+
+#### Als student:
+- Schade melden en bijhouden
+  - Schadegevallen melden die zijn opgetreden tijdens of buiten training
+  - Herstellingsstatus bijwerken
+  - Gewijzigde trainingsaanbevelingen ontvangen
+  - Medische goedkeuringdocumenten delen
+
+### 15. Voedingsadvies
+
+#### Als voedingscoach:
+- Voedingsadvies geven
+  - Voedingsplannen maken voor verschillende trainingsdoelen
+  - Voedingsplannen toewijzen aan individuele studenten
+  - Voedingscompliance en resultaten bijhouden
+  - Aanbevelingen indien nodig aanpassen op feedback
+
+#### Als student:
+- Voedingsadvies ontvangen
+  - Aanbevolen voedingsplannen bekijken
+  - Voedingsintake voor coachcontrole vastleggen
+  - Gewicht en lichaamscompositie bijhouden
+  - Vragen stellen over voedingskeuzes
+
+### 16. Evenementenbeheer
+
+#### Als schoolbeheerder:
+- Speciale evenementen organiseren
+  - Speciale workshops of seminars plannen en organiseren
+  - Gastinstructorenoptredens beheren
+  - Registratie en aanwezigheid voor evenementen bijhouden
+  - Feedback na evenementen verzamelen
+
+#### Als student:
+- Deelnemen aan speciale evenementen
+  - Upcoming speciale evenementen bekijken
+  - Registreren en betalen voor evenementen
+  - Evenementdetails en voorbereidingsinstructies ontvangen
+  - Feedback geven na deelname
+
+### 17. Communicatiesysteem
+
+#### Als schoolbeheerder:
+- Aankondigingen maken
+  - Berichten maken en verzenden naar specifieke groepen of alle leden
+  - Aankondigingen plannen voor toekomstige levering
+  - Templates gebruiken voor algemene communicaties
+  - Levering en interactie bijhouden
+
+#### Als student:
+- Schoolcommunicaties ontvangen
+  - Aankondigingen ontvangen via e-mail of in-app meldingen
+  - Communicatievoorkeuren beheren
+  - Archief van vorige aankondigingen toegang geven
+  - Reacties geven wanneer nodig
+
+### 18. Trainingresources
+
+#### Als instructeur:
+- Trainingresources delen
+  - Video's delen die goede technieken demonstreren
+  - Trainingdocumenten en handleidingen delen
+  - Resources organiseren door bandniveau of vaardigheidssoort
+  - Zien welke studenten resources hebben toegang
+
+#### Als student:
+- Trainingresources bekijken
+  - Bibliotheek van trainingvideo's en documenten bekijken
+  - Zoeken naar specifieke technieken of vaardigheden
+  - Favoriete resources vastleggen voor gemakkelijk toegang
+  - Voortgang door aanbevolen materialen volgen
+
+### 19. Prestatieanalyse
+
+#### Als hoofdcoach:
+- Prestatiegegevensanalyseren
+  - Aggregate gegevens bekijken op studentvoortgang
+  - Algemene moeilijkheidsgebieden identificeren
+  - Prestaties door verschillende trainingsgroepen vergelijken
+  - Gegevens gebruiken om curriculumaanpassingen te informeren
+
+#### Als student:
+- Prestatieanalyse bekijken
+  - Visualisaties van trainingsgegevens bekijken
+  - Algemene en minst ontwikkelde vaardigheden identificeren
+  - Voortgang vergelijken met anonimiseerde peergegevens
+  - AI-gegenereerde trainingsaanbevelingen ontvangen
+
+### 20. Gemeenschapsopbouw
+
+#### Als schooleigenaar:
+- Gemeenschapsbetrokkenheid bevorderen
+  - Studentenprofielen maken die zichtbaar zijn binnen de gemeenschap
+  - Prestaties en mijlpalen van studenten uitlichten
+  - Communicatie tussen leden faciliteren
+  - Sociale evenementen en teambuilding-activiteiten organiseren
+
+#### Als student:
+- Verbinden met schoolgemeenschap
+  - Gemeenschapsprofiel maken en aanpassen
+  - Interactie met andere studenten via forums of chat
+  - Prestaties van medestudenten erkennen en feliciteren
+  - Deelnemen aan gemeenschapsuitdagingen en evenementen
+
