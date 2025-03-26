@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('end_date');
             $table->foreignId('user_id')->constrained();
             $table->string('difficulty');
+            $table->integer('capacity');
+            $table->boolean('is_recurring')->default(false);
         });
     }
 
