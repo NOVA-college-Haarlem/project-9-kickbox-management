@@ -24,4 +24,3 @@ Route::get('/trainings', [TrainingController::class, 'index'])->name('trainings.
 Route::get('/trainings/create', [TrainingController::class, 'create'])->name('trainings.create');
 Route::post('/trainings', [TrainingController::class, 'store'])->name('trainings.store');
 Route::get('/trainings/{id}', [TrainingController::class, 'show'])->name('trainings.show');
-
