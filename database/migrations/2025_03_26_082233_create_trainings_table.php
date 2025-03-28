@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('difficulty');
             $table->integer('capacity');
-            $table->boolean('is_recurring')->default(false);
+            $table->string('is_recurring')->default('not recurring'); // Change from boolean to string
         });
     }
 
