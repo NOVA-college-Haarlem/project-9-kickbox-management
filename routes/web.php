@@ -23,4 +23,6 @@ require __DIR__.'/auth.php';
 Route::get('/trainings', [TrainingController::class, 'index'])->name('trainings.index');
 Route::get('/trainings/create', [TrainingController::class, 'create'])->name('trainings.create');
 Route::post('/trainings', [TrainingController::class, 'store'])->name('trainings.store');
-Route::get('/trainings/{id}', [TrainingController::class, 'show'])->name('trainings.show');
+Route::get('/trainings/{id}/edit', [TrainingController::class, 'edit'])->name('trainings.edit');
+Route::put('/trainings/{id}', [TrainingController::class, 'update'])->name('trainings.update');
+Route::delete('/trainings/{id}', [TrainingController::class, 'destroy'])->name('trainings.destroy');

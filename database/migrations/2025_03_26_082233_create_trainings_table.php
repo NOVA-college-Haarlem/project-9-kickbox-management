@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); 
             $table->string('difficulty');
             $table->integer('capacity');
-            $table->string('is_recurring')->default('not recurring'); // Change from boolean to string
+            $table->string('is_recurring')->default('not recurring'); 
         });
     }
 
