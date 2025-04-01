@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Middleware\Training;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['trainings'])->group(function () {
+Route::middleware(Training::class)->group(function () {
     Route::get('/', [TrainingController::class, 'index'])->name('trainings.index');
     Route::get('/create', [TrainingController::class, 'create'])->name('trainings.create');
     Route::post('/', [TrainingController::class, 'store'])->name('trainings.store');
