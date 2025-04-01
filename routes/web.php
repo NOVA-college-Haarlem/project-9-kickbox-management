@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['training'])->group(function () {
+Route::middleware(['trainings'])->group(function () {
     Route::get('/', [TrainingController::class, 'index'])->name('trainings.index');
     Route::get('/create', [TrainingController::class, 'create'])->name('trainings.create');
     Route::post('/', [TrainingController::class, 'store'])->name('trainings.store');

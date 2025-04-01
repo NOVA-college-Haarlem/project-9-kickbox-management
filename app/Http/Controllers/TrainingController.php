@@ -9,5 +9,9 @@ use Illuminate\Http\Request;
 
 class TrainingController extends Controller
 {
-    //
+    public function index()
+    {
+        $Trainingen = Training::all();
+        return view('trainings.index', compact('trainingen'));
+    }
 }
