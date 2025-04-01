@@ -18,12 +18,12 @@ class TrainingController extends Controller
 
     public function create()
     {
-        return view('trainings.create');
+        return view('training.create');
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('trainings.index');
+        return redirect()->route('training.index');
     }
   
     public function edit($id)
@@ -58,7 +58,7 @@ class TrainingController extends Controller
         $training->update($request->all());
     
         // Redirect back to the index page with a success message
-        return redirect()->route('trainings.index')->with('success', 'Training updated successfully.');
+        return redirect()->route('training.index')->with('success', 'Training updated successfully.');
     }
 
 }
