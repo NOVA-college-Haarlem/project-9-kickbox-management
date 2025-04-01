@@ -18,15 +18,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::middleware(Training::class)->group(function () {
-  Route::get('/trainings', [TrainingController::class, 'index'])->name('trainings.index');
-  Route::get('/trainings/create', [TrainingController::class, 'create'])->name('trainings.create');
-  Route::post('/trainings', [TrainingController::class, 'store'])->name('trainings.store');
-  Route::get('/trainings/{id}/edit', [TrainingController::class, 'edit'])->name('trainings.edit');
-  Route::put('/trainings/{id}', [TrainingController::class, 'update'])->name('trainings.update');
-  Route::delete('/trainings/{id}', [TrainingController::class, 'destroy'])->name('trainings.destroy');
+Route::name("/trainings.")->group(function(){
+    Route::middleware(Training::class)->group(function () {
+            Route::get('', [TrainingController::class, 'index'])->name('trainings.index');
+            Route::get('create', [TrainingController::class, 'create'])->name('trainings.create');
+            Route::post('', [TrainingController::class, 'store'])->name('trainings.store');
+            Route::get('{id}/edit', [TrainingController::class, 'edit'])->name('trainings.edit');
+            Route::put('/{id}', [TrainingController::class, 'update'])->name('trainings.update');
+            Route::delete('/{id}', [TrainingController::class, 'destroy'])->name('trainings.destroy');
+    });
 });
+
 
 
 require __DIR__.'/auth.php';
