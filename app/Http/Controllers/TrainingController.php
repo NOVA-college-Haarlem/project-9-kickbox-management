@@ -11,7 +11,22 @@ class TrainingController extends Controller
 {
     public function index()
     {
-        $Trainingen = Training::all();
+        $trainingen = Training::all();
         return view('trainings.index', compact('trainingen'));
+    }
+
+    public function create()
+    {
+        return view('trainings.create');
+    }
+
+    public function store(Request $request)
+    {
+        return redirect()->route('trainings.index');
+    }
+
+    public function show($id)
+    {
+        return view('trainings.show', ['id' => $id]);
     }
 }
