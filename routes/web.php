@@ -20,12 +20,12 @@ Route::middleware('auth')->group(function () {
 });
 Route::name("/trainings.")->group(function(){
     Route::middleware(Training::class)->group(function () {
-            Route::get('', [TrainingController::class, 'index'])->name('trainings.index');
-            Route::get('create', [TrainingController::class, 'create'])->name('trainings.create');
-            Route::post('', [TrainingController::class, 'store'])->name('trainings.store');
-            Route::get('{id}/edit', [TrainingController::class, 'edit'])->name('trainings.edit');
-            Route::put('/{id}', [TrainingController::class, 'update'])->name('trainings.update');
-            Route::delete('/{id}', [TrainingController::class, 'destroy'])->name('trainings.destroy');
+            Route::get('/trainings', [TrainingController::class, 'index'])->name('index');
+            Route::get('/trainings/create', [TrainingController::class, 'create'])->name('create');
+            Route::post('/trainings/store', [TrainingController::class, 'store'])->name('store');
+            Route::get('/trainings/{id}/edit', [TrainingController::class, 'edit'])->name('edit');
+            Route::put('/trainings/{id}/update', [TrainingController::class, 'update'])->name('update');
+            Route::delete('/trainings/{id}/delete', [TrainingController::class, 'delete'])->name('delete');
     });
 });
 
