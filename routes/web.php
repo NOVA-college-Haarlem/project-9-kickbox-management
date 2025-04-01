@@ -20,10 +20,14 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(Training::class)->group(function () {
-    Route::get('/', [TrainingController::class, 'index'])->name('trainings.index');
-    Route::get('/create', [TrainingController::class, 'create'])->name('trainings.create');
-    Route::post('/', [TrainingController::class, 'store'])->name('trainings.store');
-    Route::get('/{id}', [TrainingController::class, 'show'])->name('trainings.show');
+  Route::get('/trainings', [TrainingController::class, 'index'])->name('trainings.index');
+  Route::get('/trainings/create', [TrainingController::class, 'create'])->name('trainings.create');
+  Route::post('/trainings', [TrainingController::class, 'store'])->name('trainings.store');
+  Route::get('/trainings/{id}/edit', [TrainingController::class, 'edit'])->name('trainings.edit');
+  Route::put('/trainings/{id}', [TrainingController::class, 'update'])->name('trainings.update');
+  Route::delete('/trainings/{id}', [TrainingController::class, 'destroy'])->name('trainings.destroy');
 });
 
+
 require __DIR__.'/auth.php';
+
