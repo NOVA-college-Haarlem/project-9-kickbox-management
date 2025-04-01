@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainingController;
 
@@ -26,4 +27,3 @@ Route::middleware(['training'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
