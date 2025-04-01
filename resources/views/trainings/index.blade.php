@@ -11,8 +11,8 @@
             <tbody>
                 @foreach ($trainingen as $training)
                     <tr>
-                        <td>{{ $Training->id }}</td>
-                        <td>{{ $Training->titel }}</td>
+                        <td>{{ $training->id }}</td>
+                        <td>{{ $training->titel }}</td>
                     <tr>
                 @endforeach
             </tbody>
