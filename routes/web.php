@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Middleware\Training;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::name("/trainings.")->group(function(){
-    Route::middleware(Training::class)->group(function () {
-
+Route::name("trainings.")->group(function(){
+    Route::middleware('auth')->group(function () {
             Route::get('/trainings', [TrainingController::class, 'index'])->name('index');
             Route::get('/trainings/create', [TrainingController::class, 'create'])->name('create');
             Route::post('/trainings/store', [TrainingController::class, 'store'])->name('store');
@@ -31,6 +31,7 @@ Route::name("/trainings.")->group(function(){
     });
 });
 
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 
 
 require __DIR__.'/auth.php';

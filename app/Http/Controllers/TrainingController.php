@@ -18,25 +18,51 @@ class TrainingController extends Controller
 
     public function create()
     {
-        return view('training.create');
+        $instructors = User::where('is_instructor', true)->get(); // Fetch all instructors
+        return view('training.create', compact('instructors'));
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('training.index');
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+            'user_id' => 'required|exists:users,id',
+            'difficulty' => 'required|string',
+            'capacity' => 'required|integer|min:1',
+            'is_recurring' => 'required|in:not recurring,2x per week,1x per week,monthly',
+        ]);
+
+        // Create a new training record
+        Training::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'user_id' => $request->user_id,
+            'difficulty' => $request->difficulty,
+            'capacity' => $request->capacity,
+            'is_recurring' => $request->is_recurring,
+        ]);
+
+        // Redirect back to the index page with a success message
+        return redirect()->route('trainings.index')->with('success', 'Training created successfully.');
     }
-  
+
     public function edit($id)
     {
 
         $training = Training::findOrFail($id); // Fetch the training by ID
         $instructors = User::where('is_instructor', true)->get(); // Fetch all instructors
-    
+
         // dd($training); // Debug the training object
-    
+
         return view('training.edit', compact('training', 'instructors'));
     }
-    
+
     public function update(Request $request, $id)
     {
         // Validate the request data
@@ -50,15 +76,14 @@ class TrainingController extends Controller
             'capacity' => 'required|integer|min:1',
             'is_recurring' => 'required|in:not recurring,2x per week,1x per week,monthly',
         ]);
-    
+
         // Find the training by ID
         $training = Training::findOrFail($id);
-    
+
         // Update the training with the validated data
         $training->update($request->all());
-    
+
         // Redirect back to the index page with a success message
         return redirect()->route('training.index')->with('success', 'Training updated successfully.');
     }
-
 }
