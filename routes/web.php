@@ -18,9 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::name("/trainings.")->group(function(){
-    Route::middleware(Training::class)->group(function () {
-
+Route::name("trainings.")->group(function(){
+    Route::middleware('auth')->group(function () {
             Route::get('/trainings', [TrainingController::class, 'index'])->name('index');
             Route::get('/trainings/create', [TrainingController::class, 'create'])->name('create');
             Route::post('/trainings/store', [TrainingController::class, 'store'])->name('store');
