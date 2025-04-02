@@ -21,8 +21,8 @@
                         <td>{{ $training->id }}</td>
                         <td>{{ $training->name }}</td>
                         <td>{{ $training->description }}</td>
-                        <td>{{ \Carbon\Carbon::parse($training->start_date)->format('d M Y, H:i') }}</td>
-                        <td>{{ \Carbon\Carbon::parse($training->end_date)->format('d M Y, H:i') }}</td>
+                        <td>{{ (new DateTime($training->start_date))->format('d M Y, H:i') }}</td>
+                        <td>{{ (new DateTime($training->end_date))->format('d M Y, H:i') }}</td>
                         <td>{{ $training->instructor->name ?? 'N/A' }}</td>
                         <td>{{ $training->capacity }}</td>
                     </tr>
