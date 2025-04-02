@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Middleware\Training;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::name("trainings.")->group(function(){
     });
 });
 
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 
 
 require __DIR__.'/auth.php';

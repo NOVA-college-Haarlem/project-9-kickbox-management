@@ -100,6 +100,46 @@
             font-weight: bold;
         }
 
+        /* Calendar Table Styling */
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .calendar-table th,
+        .calendar-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .calendar-table th {
+            background-color: #8B0000; /* Dark red */
+            color: white;
+        }
+
+        .calendar-table td {
+            height: 100px;
+            background-color: #f9f9f9;
+        }
+
+        .calendar-table td ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .calendar-table td ul li {
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .calendar-table td ul li:hover {
+            color: #8B0000; /* Dark red on hover */
+        }
+
         /* Responsive Table */
         @media (max-width: 768px) {
             header h1 {
