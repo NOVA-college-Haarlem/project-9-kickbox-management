@@ -28,4 +28,9 @@ class Training extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function attendees()
+    {
+        return $this->belongsToMany(User::class, 'training_user');
+    }
 }

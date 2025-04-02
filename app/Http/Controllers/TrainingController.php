@@ -86,4 +86,18 @@ class TrainingController extends Controller
         // Redirect back to the index page with a success message
         return redirect()->route('training.index')->with('success', 'Training updated successfully.');
     }
+
+    public function attend(Request $request)
+    {
+        $request->validate([
+            'training_id' => 'required|exists:trainings,id',
+        ]);
+
+        $training = Training::findOrFail($request->training_id);
+
+        // Assuming you have a pivot table for attendance
+        $training->attendees()->attach(auth()->user()->id);
+
+        return redirect()->back()->with('success', 'You have successfully registered for the training!');
+    }
 }
