@@ -50,4 +50,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Training::class, 'user_id');
     }
+
+    public function createdTrainings()
+    {
+        // Trainings created by the user (e.g., as an instructor)
+        return $this->hasMany(Training::class, 'user_id');
+    }
+
+    public function attendedTrainings()
+    {
+        // Trainings the user is attending (via the pivot table)
+        return $this->belongsToMany(Training::class, 'training_user');
+    }
 }

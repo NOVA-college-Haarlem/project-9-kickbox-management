@@ -11,12 +11,11 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #bf4646; /* Light gray background */
+            background: url('{{ asset('images/kickboxer.jpg') }}') no-repeat center center/cover;
             color: #333; /* Dark text for readability */
         }
 
         header {
-            background: url('https://source.unsplash.com/1600x400/?kickboxing,training') no-repeat center center/cover;
             color: white;
             text-align: center;
             padding: 3rem 0;
@@ -140,6 +139,61 @@
             color: #8B0000; /* Dark red on hover */
         }
 
+        .calendar-table td.today{
+            background-color: #FFD700; /* Gold for today's date */
+            font-weight: bold;
+            color: #000;
+            border: 2px solid #8B0000; /* Dark red border */
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .training-link {
+            color: #8B0000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .training-link:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive Table */
         @media (max-width: 768px) {
             header h1 {
@@ -169,12 +223,7 @@
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Kickboxing Academy</h1>
-        <p>Unleash Your Inner Fighter</p>
-    </header>
-
+<body style="background: url('{{ asset($bodyBackground ?? 'images/kickboxer.jpg') }}') no-repeat center center/cover;">
     <nav>
         <a href="/">Home</a>
         <a href="/calendar">Schedule</a>
@@ -182,6 +231,16 @@
         <a href="/about">About Us</a>
         <a href="/contact">Contact</a>
     </nav>
+    <header>
+        <h1>Kickboxing Academy</h1>
+        <p>Unleash Your Inner Fighter</p>
+    </header>
+
+    @if (session('success'))
+        <div style="background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; border-radius: 5px; margin: 10px 0;">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main>
         {{ $slot }}

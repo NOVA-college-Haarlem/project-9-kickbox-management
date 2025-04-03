@@ -9,6 +9,7 @@ class CalendarController extends Controller
 {
     public function index()
     {
+        $bodyBackground = 'images/Kickboxer2.jpg';
         // Define the start and end of the current month
         $startOfMonth = now()->startOfMonth();
         $endOfMonth = now()->endOfMonth();
@@ -22,6 +23,6 @@ class CalendarController extends Controller
         });
 
         // Pass data to the view
-        return view('calendar.index', compact('startOfMonth', 'endOfMonth', 'trainingsByDate'));
+        return view('calendar.index', compact('bodyBackground', 'startOfMonth', 'endOfMonth', 'trainingsByDate'));
     }
 }

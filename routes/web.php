@@ -27,6 +27,7 @@ Route::name("trainings.")->group(function(){
             Route::get('/trainings/{id}/edit', [TrainingController::class, 'edit'])->name('edit');
             Route::put('/trainings/{id}/update', [TrainingController::class, 'update'])->name('update');
             Route::delete('/trainings/{id}/delete', [TrainingController::class, 'delete'])->name('delete');
+            Route::post('/trainings/attend', [TrainingController::class, 'attend'])->name('attend');
 
     });
 });
