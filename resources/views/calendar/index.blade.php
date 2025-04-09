@@ -33,13 +33,19 @@
                                 @if (isset($trainingsByDate[$currentDate->format('Y-m-d')]))
                                     @foreach ($trainingsByDate[$currentDate->format('Y-m-d')] as $training)
                                         <li>
-                                            <form method="POST" action="{{ route('trainings.attend') }}" style="display: inline;">
-                                                @csrf
-                                                <input type="hidden" name="training_id" value="{{ $training->id }}">
-                                                <button type="submit" class="training-link" style="background: none; border: none; color: #8B0000; cursor: pointer;">
+                                            @if (auth()->user()->id === $training->user_id) <!-- Check if the user is the instructor -->
+                                                <a href="{{ route('trainings.participants', $training->id) }}" class="training-link" style="color: #8B0000; text-decoration: underline;">
                                                     {{ $training->name }} ({{ (new DateTime($training->start_date))->format('H:i') }})
-                                                </button>
-                                            </form>
+                                                </a>
+                                            @else
+                                                <form method="POST" action="{{ route('trainings.attend') }}" style="display: inline;">
+                                                    @csrf
+                                                    <input type="hidden" name="training_id" value="{{ $training->id }}">
+                                                    <button type="submit" class="training-link" style="background: none; border: none; color: #8B0000; cursor: pointer;">
+                                                        {{ $training->name }} ({{ (new DateTime($training->start_date))->format('H:i') }})
+                                                    </button>
+                                                </form>
+                                            @endif
                                         </li>
                                     @endforeach
                                 @else

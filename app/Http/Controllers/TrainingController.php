@@ -100,4 +100,13 @@ class TrainingController extends Controller
 
         return redirect()->back()->with('success', 'You have successfully registered for the training!');
     }
+
+    public function participants(Training $training)
+    {
+        if (auth()->user()->id !== $training->user_id) {
+            abort(403, 'Unauthorized action.');
+        }
+        $participants = $training->attendees; // Assuming you have a relationship defined in the Training model
+        return view('training.participants', compact('participants', 'training'));
+    }
 }
