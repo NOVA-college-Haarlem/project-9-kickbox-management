@@ -223,9 +223,10 @@
         }
     </style>
 </head>
-<body style="background: url('{{ asset($bodyBackground ?? 'images/kickboxer.jpg') }}') no-repeat center center/cover;">
+<body style="background-color: #ea2a2a;">
     <nav>
         <a href="/">Home</a>
+        <a href="/trainings/create">Create</a>
         <a href="/calendar">Schedule</a>
         <a href="/trainings">Trainings</a>
         <a href="/about">About Us</a>
