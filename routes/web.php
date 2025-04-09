@@ -7,8 +7,8 @@ use App\Http\Middleware\Training;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,7 +28,7 @@ Route::name("trainings.")->group(function(){
             Route::put('/trainings/{id}/update', [TrainingController::class, 'update'])->name('update');
             Route::delete('/trainings/{id}/delete', [TrainingController::class, 'delete'])->name('delete');
             Route::post('/trainings/attend', [TrainingController::class, 'attend'])->name('attend');
-
+            Route::get('/trainings/{training}/participants', [TrainingController::class, 'participants'])->middleware('auth')->name('participants');
     });
 });
 
